@@ -1,0 +1,32 @@
+<Html>
+
+<h1>{{title}} <a href="/add">기사작성</a> </h1>
+
+<table>
+    <tr>
+        {{#db_top3}}
+            <td><a href="/read?id={{id}}"><img src={{img}} width="300" height="200"></a></td>
+        {{/db_top3}}
+    </tr>
+</table>
+
+<table>
+    {{#db_news}}
+        <tr>
+            <td>{{id}}.</td>
+            <td><a href="/read?id={{id}}">{{title}}</a></td>
+        </tr>
+    {{/db_news}}
+</table>
+
+<table>
+    <tr>
+        {{#db_banner}}
+            <td><a href={{url}}><img src={{img}} width="100" height="70"></a></td>
+        {{/db_banner}}
+    </tr>
+</table>
+
+주소 {{address}}
+
+</Html>

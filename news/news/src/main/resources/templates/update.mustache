@@ -1,0 +1,9 @@
+뉴스기사 수정 화면 <br>
+
+<form action="/update_commit">
+    id <input type="text" name="id" value="{{news.id}}" readonly><br>
+    제목 <input type="text" name="title" value="{{news.title}}"><br>
+    이미지 <input type="text" name="img" value="{{news.img}}"><br>
+    내용 <textarea rows="10" cols="40" name="content">{{news.content}}</textarea><br>
+    <input type="submit" value="저장"/>
+</form>

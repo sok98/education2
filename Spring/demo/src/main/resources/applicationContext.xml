@@ -1,0 +1,36 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd ">
+    <context:annotation-config/>
+    <bean id="p1" class="com.spring.demo.Person"> </bean>
+    <bean id="p2" class="com.spring.demo.Person" scope="prototype" init-method="init" destroy-method="destroy">
+        <constructor-arg value="홍길동"/>
+        <constructor-arg value="80"/>
+        <property name="hobby" value="변신술, 악당괴롭히기"/>
+        <property name="age" value="90"/>
+    </bean>
+    <bean id="opt1" class="com.spring.demo.Option">
+        <constructor-arg value="네비게이션"/>
+    </bean>
+    <bean id="opt2" class="com.spring.demo.Option">
+        <constructor-arg value="후방카메라"/>
+    </bean>
+    <bean id="opt3" class="com.spring.demo.Option">
+        <constructor-arg value="AV 시스템"/>
+    </bean>
+    <bean id="car1" class="com.spring.demo.Car">
+        <constructor-arg value="소나타^^^"/>
+        <constructor-arg value="빨간색!!!"/>
+        <property name="options">
+            <list>
+                <ref bean="opt1"/>
+                <ref bean="opt2"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="svr" class="com.spring.demo.CarService">
+        <constructor-arg ref="car1"/>
+    </bean>
+    <bean id="svr2" class="com.spring.demo.CarServiceBad">
+        <property name="car" ref="car1"/>
+    </bean>
+    <bean id="svr3" class="com.spring.demo.CarServiceAuto"> </bean>
+</beans>
